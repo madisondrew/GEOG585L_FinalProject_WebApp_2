@@ -1,6 +1,6 @@
 
 window.onload = function () {
-    type="text/javascript"; src="us-states.js"
+    type="text/javascript"; src="test_rooms.js"
 
 
 	const map = L.map('map').setView([37.8, -96], 4);
@@ -20,8 +20,8 @@ window.onload = function () {
 	};
 
 	info.update = function (props) {
-		const contents = props ? `<b>${props.name}</b><br />${props.density} people / mi<sup>2</sup>` : 'Hover over a state';
-		this._div.innerHTML = `<h4>US Population Density</h4>${contents}`;
+		const contents = props ? `<b>${props.room_numbe}</b><br />${room}/ count` : 'Hover over a state';
+		this._div.innerHTML = `<h4>Artifact Density</h4>${count}`;
 	
     }; 
 	info.addTo(map);
@@ -43,7 +43,7 @@ window.onload = function () {
 			color: 'white',
 			dashArray: '3',
 			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.density)
+			fillColor: getColor(feature.properties.count)
 		};
 	}
 
@@ -63,7 +63,7 @@ window.onload = function () {
 	}
 
 	/* global statesData */
-	const geojson = L.geoJson(statesData, {
+	const geojson = L.geoJson(roomData, {
 		style,
 		onEachFeature
 	}).addTo(map);
