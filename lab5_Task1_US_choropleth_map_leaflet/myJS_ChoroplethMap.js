@@ -28,12 +28,12 @@ window.onload = function () {
 
 
 	// get color depending on population density value
-	function getColor(d) {
-		return d > 1000 ? '#54278f' :
-			d > 1000  ? '#756bb1' :
-			d > 500  ? '#9e9ac8' :
-			d > 100  ? '#bcbddc' :
-			d > 20   ? '#dadaeb' : '#f2f0f7';
+	function getColor(count) {
+		return count > 1000 ? '#54278f' :
+			count > 1000  ? '#756bb1' :
+			count > 500  ? '#9e9ac8' :
+			count > 100  ? '#bcbddc' :
+			count > 20   ? '#dadaeb' : '#f2f0f7';
 	}
 
 	function style(feature) {
