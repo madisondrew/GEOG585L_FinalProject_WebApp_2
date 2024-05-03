@@ -4,7 +4,7 @@ window.onload = function() {
         src = "pueblobonito_rooms_phase1_poly.js"; // added by Dr. Yang
         src = "phase_2_poly.js";
         src = "phase-3-4-poly.js";
-        src = "ceramic_data.js";
+        
 
         // const map = L.map("map").setView([37.8, -96], 4); // commented out by Sarigai
         const map = L.map("map").setView(
