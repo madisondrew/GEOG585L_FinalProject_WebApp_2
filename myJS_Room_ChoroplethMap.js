@@ -31,28 +31,32 @@ window.onload = function() {
         info.update = function(props) {
             const contents = props // `<b>${props.name}</b><br />${props.density} people / mi<sup>2</sup>` // commented out by Sarigai
                 ?
-                `<b>room:${props.room_numbe}</b><br />count:${props.count} ` // edited by Sarigai // you need to update your hover over info based on your owen data, I have updated based on the geojson, but you need to check on to make sure is it correct
+                `<b>Room: ${props.room_numbe}</b><br />Percent: ${props.count}<br />Building Phase: ${props.phase}` // edited by Sarigai // you need to update your hover over info based on your owen data, I have updated based on the geojson, but you need to check on to make sure is it correct
                 : // "Hover over a state"; // commented out by Sarigai
-                "Hover over a room"; // edited by Sarigai // same correction here
+                "Hover Over a Room"; // edited by Sarigai // same correction here
             // this._div.innerHTML = `<h4>US Population Density</h4>${contents}`; // suggestion by Dr. Yang: Madison remmber to added the text bettwen the h4 tag // commented out by Sarigai
 
-            this._div.innerHTML = `<h4>Count</h4>${contents}`; // edited by Sarigai // same correction here
+            this._div.innerHTML = `<h4>Percent of Ritual Objects</h4>${contents}`; // edited by Sarigai // same correction here
         };
         info.addTo(map);
 
         // get color depending on population density value
         function getColor(d) {
-            return d > 1000 ?
-                "#54278f" :
-                d > 1000 ?
-                "#756bb1" :
-                d > 500 ?
-                "#9e9ac8" :
-                d > 100 ?
-                "#bcbddc" :
+            return d > 80 ?
+                "#8c2d04" :
+                d > 60 ?
+                "#d94801" :
+                d > 40 ?
+                "#f16913" :
                 d > 20 ?
-                "#dadaeb" :
-                "#636363"; //suggestion by Dr. Yang: Madison, remember to adjust the color interval number based on your room object counts range in your own data.
+                "#fd8d3c" :
+                d > 1 ?
+                "#fdae6b" :
+                d < 1 ?
+                "#fdd0a2" :
+                d = 0
+                "#feedde"; 
+                ; //suggestion by Dr. Yang: Madison, remember to adjust the color interval number based on your room object counts range in your own data.
         }
 
         function style(feature) {
@@ -166,7 +170,7 @@ window.onload = function() {
 
         legend.onAdd = function(map) {
                 const div = L.DomUtil.create("div", "info legend");
-                const grades = [0, 20, 100, 500, 1000];
+                const grades = [0, 1, 20, 40, 60, 80];
                 const labels = [];
                 let from, to;
 
