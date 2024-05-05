@@ -6,18 +6,18 @@ window.onload = function() {
         src = "phase-3-4-poly.js";
         
 
-        // const map = L.map("map").setView([37.8, -96], 4); // commented out by Sarigai
+       
         const map = L.map("map").setView(
             [36.06052240396411, -107.96167091056132],
             18
-        ); // edited by Sarigai // your geojson data will not be able to be shown on a small scale map, so need to zoom in more and center the certain lat, long
+        );
 
         const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
             maxZoom: 25,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         }).addTo(map);
 
-        // console.log(roomData_phase1); // commented out by Sarigai
+        
 
         // control that shows state info on hover
         const info = L.control();
@@ -161,11 +161,7 @@ window.onload = function() {
         
     
 
-        // !!!!!the data source needs to be updated here //commented by Sarigai
-        map.attributionControl.addAttribution(
-            'Population data &copy; <a href="http://census.gov/">US Census Bureau</a>'
-        );
-
+      
         const legend = L.control({ position: "bottomleft" });
 
         legend.onAdd = function(map) {
